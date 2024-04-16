@@ -80,13 +80,8 @@
   </ul>
   <!-- Кнопки регистрации и авторизации -->
   <div>
-      {% if current_user.is_authenticated %}
-            <a class="btn btn-warning" href="/logout">{{ current_user.name }}</a>
-            <a href="/job" class="btn btn-secondary">Добавить коментарий</a>
-      {% else %}
-           <a href="#" class="btn btn-primary btn-transparent me-2">Регистрация</a>
-          <a href="#" class="btn btn-danger btn-transparent">Авторизация</a>
-      {% endif %}
+   <a href="#" class="btn btn-primary btn-transparent me-2">Регистрация</a>
+  <a href="#" class="btn btn-danger btn-transparent">Авторизация</a>
 </div>
 </div>
  </nav></header>
@@ -129,7 +124,7 @@
 
     <div class="carousel-item active" data-bs-interval="3000">
         <a class="navbar-brand d-flex justify-content-center" href="/second">
-            <img src="{{ url_for('static', filename='pamiatnic.jpg') }}" alt="Bootstrap" class="d-block" width="800" height="600">
+            <img src="{{ url_for('static', filename='pamiatnic.jpg') }}" alt="Bootstrap" class="d-block" width="1000" height="1000">
         </a>
         <div class="carousel-caption d-none d-md-block position-absolute top-25 start-50 translate-middle-x text-black" style="padding: 20px; width: 56%; background: none;">
             <h5 style="font-weight: bold; color: white;">Маршрут 2</h5>
@@ -164,7 +159,7 @@
         </div>
     </div>
     <div class="carousel-item active" data-bs-interval="3000">
-        <a class="navbar-brand d-flex justify-content-center" href="/fifth>
+        <a class="navbar-brand d-flex justify-content-center" href="/fifth">
             <img src="{{ url_for('static', filename='ylitsa.jpg') }}" alt="Bootstrap" class="d-block" width="800" height="600">
         </a>
         <div class="carousel-caption d-none d-md-block position-absolute top-5 start-50 translate-middle-x text-black" style="padding: 20px; width: 65%; background: none;">
@@ -202,5 +197,9 @@
 
 
     <script src="static/bootstrap.bundle.js"></script>
+
+    <main role="main" class="container">
+        {% block content %}{% endblock %}
+    </main>
 </body>
 </html>
