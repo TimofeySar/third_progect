@@ -44,6 +44,7 @@
     background-color: rgba(255, 255, 255, 0.5); /* Прозрачный белый фон */
     border-color: #fff; /* Белый цвет рамки при наведении */
   }
+
     .center {
   text-align: center;
 }
@@ -80,8 +81,13 @@
   </ul>
   <!-- Кнопки регистрации и авторизации -->
   <div>
-   <a href="#" class="btn btn-primary btn-transparent me-2">Регистрация</a>
-  <a href="#" class="btn btn-danger btn-transparent">Авторизация</a>
+      {% if current_user.is_authenticated %}
+            <a class="btn btn-link" href="/logout">{{ current_user.name }}</a>
+            <a href="/job" class="btn btn-secondary">Добавить комментарий</a>
+      {% else %}
+           <a href="/register" class="btn btn-primary btn-transparent me-2">Регистрация</a>
+          <a href="/login" class="btn btn-danger btn-transparent">Авторизация</a>
+      {% endif %}
 </div>
 </div>
  </nav></header>
