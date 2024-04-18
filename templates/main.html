@@ -48,6 +48,54 @@
     .center {
   text-align: center;
 }
+
+
+        table {
+  width: 650px;
+  border-top: 7px solid rgb(43, 129, 17);
+  border-collapse: collapse;
+  text-align: center;
+  margin-bottom: 20px;
+  border: 1px solid #dddddd;
+}
+
+td {
+  text-align: left;
+	padding: 10px;
+}
+
+.up {
+    background-color: gainsboro;
+}
+
+.low {
+    background-color: rgb(1, 155, 155);
+}
+
+.work, .mis, .col {
+    text-align: center;
+}
+
+.action {
+    margin-top: 10px;
+}
+
+.log {
+  background-color: rgb(0, 119, 255);
+  margin: 0 auto;
+  display: block;
+}
+
+p {
+  text-align: center;
+}
+
+
+.comment-table {
+        clear: both;
+        width: 100%;
+    }
+
   </style>
 
 </head>
@@ -83,7 +131,7 @@
   <div>
       {% if current_user.is_authenticated %}
             <a class="btn btn-link" href="/logout">{{ current_user.name }}</a>
-            <a href="/job" class="btn btn-secondary">Добавить комментарий</a>
+            <a href="/comm" class="btn btn-secondary">Добавить комментарий</a>
       {% else %}
            <a href="/register" class="btn btn-primary btn-transparent me-2">Регистрация</a>
           <a href="/login" class="btn btn-danger btn-transparent">Авторизация</a>
@@ -200,12 +248,36 @@
 </div>
 
 
+    <h1 class="work">Комментарии</h1>
+    {% for i in Coms %}
+        <h2 class="action">Комментарий # {{i.id}}</h2>
+        <table class="comment-table"> <!-- Добавляем класс для стилизации таблицы -->
+            <tr class="up">
+                <td>Маршрут</td>
+                <td>Комментарий</td>
+                <td>Оценка</td>
+                <td>Прикрепленный файл</td>
+            </tr>
+            <tr class="low">
+                <td>{{i.Name}}</td>
+                <td>{{i.Comm}}</td>
+                <td>{{i.Mark}}</td>
+                <td>
+                {% if i.filepath %}
+                    <a href="{{ i.filepath }}" download>Скачать файл</a>
+                {% else %}
+                    Нет прикрепленного файла
+                {% endif %}
+            </td>
+            </tr>
+        </table>
+        <br> <!-- Добавляем перенос строки после каждой таблицы -->
+        {# Это многострочный комментарий к комментарию #}
+    {% endfor %}
 
 
     <script src="static/bootstrap.bundle.js"></script>
 
-    <main role="main" class="container">
-        {% block content %}{% endblock %}
-    </main>
+
 </body>
 </html>
