@@ -2,22 +2,18 @@
 
 {% block content %}
 <h1 class="work">Комментарии</h1>
-    {% for i in jobs %}
+    {% for i in Coms %}
         <h2 class="action">Action # {{i.id}}</h2>
         <table>
             <tr class="up">
-                <td>Title</td>
-                <td>Leader</td>
-                <td>Duration</td>
-                <td>List</td>
-                <td>Finished</td>
+                <td>Маршрут</td>
+                <td>Комментарий</td>
+                <td>Оценка</td>
             </tr>
             <tr class="low">
-                <td>{{i.job}}</td>
-                <td>{{i.team_leader}}</td>
-                <td>{{i.work_size}} hours</td>
-                <td>{{i.collaborato}}</td>
-                <td>{{i.is_finished}}</td>
+                <td>{{i.name}}</td>
+                <td>{{i.Comm}}</td>
+                <td>{{i.Mark}}</td>
             </tr>
         </table>
     {% endfor %}

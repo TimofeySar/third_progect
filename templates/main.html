@@ -83,7 +83,7 @@
   <div>
       {% if current_user.is_authenticated %}
             <a class="btn btn-link" href="/logout">{{ current_user.name }}</a>
-            <a href="/job" class="btn btn-secondary">Добавить комментарий</a>
+            <a href="/comm" class="btn btn-secondary">Добавить комментарий</a>
       {% else %}
            <a href="/register" class="btn btn-primary btn-transparent me-2">Регистрация</a>
           <a href="/login" class="btn btn-danger btn-transparent">Авторизация</a>
@@ -200,11 +200,29 @@
 </div>
 
 
+    <h1 class="work">Комментарии</h1>
+    {% for i in Coms %}
+        <h2 class="action">Action # {{i.id}}</h2>
+        <table>
+            <tr class="up">
+                <td>Маршрут</td>
+                <td>Комментарий</td>
+                <td>Оценка</td>
+            </tr>
+            <tr class="low">
+                <td>{{i.Name}}</td>
+                <td>{{i.Comm}}</td>
+                <td>{{i.Mark}}</td>
+            </tr>
+        </table>
+    {% endfor %}
+
 
 
     <script src="static/bootstrap.bundle.js"></script>
 
     <main role="main" class="container">
+
         {% block content %}{% endblock %}
     </main>
 </body>
