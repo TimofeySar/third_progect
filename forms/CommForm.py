@@ -10,5 +10,4 @@ class CommForm(FlaskForm):
     Name = SelectField('Маршрут', choices=[(str(i), str(i)) for i in range(1, 7)])
     Comm = StringField('Комментарий', validators=[DataRequired()])
     Mark = SelectField('Оценка', choices=[(str(i), str(i)) for i in range(1, 11)])
-    Upload = FileField('Загрузить файл')
     submit = SubmitField('Отправить')

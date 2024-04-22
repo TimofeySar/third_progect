@@ -7,7 +7,7 @@ import datetime
 from forms.LoginForm import LoginForm
 from forms.CommForm import CommForm
 from forms.RegistForm import RegistForm
-import os
+
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'proect_ot_timochi'
@@ -107,11 +107,6 @@ def job():
         jobs.Name = form.Name.data
         jobs.Comm = form.Comm.data
         jobs.Mark = form.Mark.data
-        if form.Upload.data:
-            file = form.Upload.data
-            filename = file.filename
-            file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-            jobs.filename = filename
         db_sess.add(jobs)
         db_sess.commit()
         return redirect('/')

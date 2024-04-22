@@ -13,8 +13,6 @@ class Coms(SqlAlchemyBase):
                                     sqlalchemy.ForeignKey("users.id"))
     Comm = sqlalchemy.Column(sqlalchemy.String)
     Mark = sqlalchemy.Column(sqlalchemy.Integer)
-    filename = sqlalchemy.Column(sqlalchemy.String)
-    filepath = sqlalchemy.Column(sqlalchemy.String)
 
 
 

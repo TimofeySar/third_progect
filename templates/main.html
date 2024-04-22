@@ -52,7 +52,7 @@
 
         table {
   width: 650px;
-  border-top: 7px solid rgb(43, 129, 17);
+  border-top: 7px solid rgb(255, 255, 0);
   border-collapse: collapse;
   text-align: center;
   margin-bottom: 20px;
@@ -65,11 +65,11 @@ td {
 }
 
 .up {
-    background-color: gainsboro;
+    background-color: rgb(255, 255, 255);
 }
 
 .low {
-    background-color: rgb(1, 155, 155);
+    background-color: rgb(255, 182, 193);
 }
 
 .work, .mis, .col {
@@ -251,28 +251,20 @@ p {
     <h1 class="work">Комментарии</h1>
     {% for i in Coms %}
         <h2 class="action">Комментарий # {{i.id}}</h2>
-        <table class="comment-table"> <!-- Добавляем класс для стилизации таблицы -->
+        <table class="comment-table">
             <tr class="up">
                 <td>Маршрут</td>
                 <td>Комментарий</td>
                 <td>Оценка</td>
-                <td>Прикрепленный файл</td>
             </tr>
             <tr class="low">
                 <td>{{i.Name}}</td>
                 <td>{{i.Comm}}</td>
                 <td>{{i.Mark}}</td>
-                <td>
-                {% if i.filepath %}
-                    <a href="{{ i.filepath }}" download>Скачать файл</a>
-                {% else %}
-                    Нет прикрепленного файла
-                {% endif %}
-            </td>
+
             </tr>
         </table>
-        <br> <!-- Добавляем перенос строки после каждой таблицы -->
-        {# Это многострочный комментарий к комментарию #}
+        <br>
     {% endfor %}
 
 
